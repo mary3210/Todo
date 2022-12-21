@@ -1,9 +1,13 @@
 import React from 'react';
+import Header from './components/Header';
+import {Routes, Route } from 'react-router-dom';
+import routes from './config/routes';
 
 function App() {
   return (
     <div className="container">
-      <h1>Hello World</h1>
+      <header/>
+      { routes }
     </div>
   );
 };
