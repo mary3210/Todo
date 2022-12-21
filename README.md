@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# React Todo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Learning Objectives
+- Build a todo app in React that persists with a backend
+- Use React Router to deep link
+- Use axios promise library to retrieve data from a back end
+- Pass state from parent components to children as props
+- Pass state from children components to their parents as arguments to functions
 
-## Available Scripts
+## Framing
+For today, we'll be creating a Todo app in React but first, recall the FIRST principles for making high quality components:
 
-In the project directory, you can run:
+#### Focused
 
-### `npm start`
+Components should do one thing and do it well. It takes some time for most developers coming from an OOP background to adjust to React's component-based architecture. At first, a dev from an OOP background may pack too much information into a component. This is a fine starting point, but as you progress you will get a better sense of how to minimize component code.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Independent
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Components should increase cohesion (work together) and reduce coupling (not rely on each other).
 
-### `npm test`
+#### Reusable
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Components should be written in a way that reduces the duplication of code. Reusability keeps things DRY!
 
-### `npm run build`
+#### Small
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Ideally, components should be short and condensed.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Testable
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Because the same input will always produce the same output, components are easily unit testable.
 
-### `npm run eject`
+## React Todo
+Alright it's time to build! We're going to be building this application from scratch! It won't be exactly like the solution-code directory above (that uses the older React Component syntax), but it'll be pretty close and follow much of the same structure.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+> If you get behind, all code written today will be in the lesson plan. The error messages you'll get in terminal and in the chrome dev tools from React are usually very accurate and helpful, so please utilize them. Please keep questions pertinent to content. We should also note that some of the code snippets will be repetitions to reiterate points of learning. Some of them might just be updates to existing files. Some of them might be brand new content you have to add all of.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[Sprint 0: Getting Started](sprints/Sprint0.md)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+[Sprint 1: React Router setup](sprints/Sprint1.md)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+[Sprint 2: Containers](sprints/Sprint2.md)
 
-## Learn More
+[Sprint 3: Fetching data with Axios](sprints/Sprint3.md)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[Sprint 4: Creating Todos](sprints/Sprint4.md)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[Sprint 5: Deleting Todos](sprints/Sprint5.md)
 
-### Code Splitting
+[Sprint 6: Edit/Update a Todo](sprints/Sprint6.md)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![list](https://media.giphy.com/media/26ufnwz3wDUli7GU0/giphy.gif)
