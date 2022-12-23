@@ -17,7 +17,10 @@ class TodoModel {
       return request;
     };
 
-
+    static update = (todo) => {
+      let request = axios.put(`${endPoint}/${todo._id}`, todo);
+      return request;
+    };
 
 
   

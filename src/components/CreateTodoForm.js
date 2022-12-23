@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const CreateTodoForm = () => {
+const CreateTodoForm = (props) => {
    const [todo, setTodo] = useState("")
 
 const onInputChange = (e) => {
@@ -9,8 +9,8 @@ const onInputChange = (e) => {
 
 const onFormSubmit = (e) => {
     e.preventDefault();
-    this.props.createTodo(todo);
-    setTodo("")
+    props.createTodo(todo)
+    setTodo('')
 };
 
     return(

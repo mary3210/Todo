@@ -1,18 +1,20 @@
-import CreateTodoForm from '../components/CreateTodoForm'
 import React, { useState, useEffect } from 'react';
 import TodoModel from '../models/Todo';
 import Todos from '../components/Todos';
+import CreateTodoForm from '../components/CreateTodoForm'
+
+
 
     function TodosContainer () {
         const [todos, setTodos] = useState([])
-      
+       
       
           useEffect(()=>{
           TodoModel.all().then((res) => {
-          //   console.log(res);
-            setTodos(res)
+            console.log(res);
+            setTodos(res.data)
           });
-        },[])
+        },[todos.length])
       
         const createTodo = (todo) => {
             let newTodo = {
@@ -21,30 +23,44 @@ import Todos from '../components/Todos';
             };
         
             TodoModel.create(newTodo).then((res) => {
-                let todos = todos.slice();
-                todos.push(res.data);
-                setTodos({ todos: todos });
+                let currenttodos = todos.slice();
+                currenttodos.push(res.data);
+                setTodos( currenttodos);
             });
         };
         
        const deleteTodo = (todo) => {
             TodoModel.delete(todo).then((res) => {
-                let todos = todos.filter((todo) => {
+                let filteredTodos = todos.filter((todo) => {
                   return todo._id !== res.data._id;
                 });
-                setTodos(todos);
+                setTodos(filteredTodos);
             });
         };
 
-
+        const updateTodo = (todo) => {
+            const isUpdatedTodo = t => {
+                return t._id === todo._id;
+            };
+        
+            TodoModel.update(todo)
+                .then((res) => {
+                  let Newtodos = todos.slice();
+                  todos.find(isUpdatedTodo).body = todo.body;
+                  setTodos(Newtodos);
+                });
+          };
         
           return (
             <div className="todosContainer">
             <CreateTodoForm
               createTodo={ createTodo } />
             <Todos
-              todos={this.props.todos} 
-               deleteTodo={deleteTodo}/>
+              todos={todos} 
+               
+               updateTodo={updateTodo}
+               deleteTodo={deleteTodo}
+               />
           </div>
           );
       }

@@ -1,24 +1,48 @@
-import React, { Component} from 'react';
+import React, { useState} from 'react';
+import TodoForm from './TodoForm'
 
 const Todo = (props)=>{
+   
 
     const deleteClickedTodo = () => {
       props.deleteTodo(props.todo);
     };
   
-    
-      return (
-        <li data-todos-index={props.todo._id}>
-          <span className="todo-item">{props.todo.body}</span>
-          <span
-            className='remove'
-            onClick={deleteClickedTodo}>
-            Remove
-          </span>
-        </li>
-      );
+    const [formStyle, setFormStyle] = useState({
+        display: 'none',
+      })
+
+  const toggleBodyForm = () => {
+    formStyle.display === 'block'
+    ? setFormStyle({ display: 'none'} )
+    : setFormStyle({ display: 'block'} )
+  };
+
+  return (
+    <li data-todos-index={props.todo._id}>
+      <div>
+        <span className="todo-item">
+          {props.todo.body}</span>
+        <span
+          className='edit'
+          onClick={toggleBodyForm}>
+          Edit
+        </span>
+        <span
+          className='remove'
+          onClick={deleteClickedTodo}>
+          Remove
+        </span>
+      </div>
+      <TodoForm
+        todo={props.todo}
+        style={formStyle}
+        autoFocus={true}
+        buttonName="Update Todo!"
+        updateTodo={props.updateTodo}
+        toggleBodyForm={toggleBodyForm} />
+    </li>
+  );
     };
  
-  
-
 export default Todo;
