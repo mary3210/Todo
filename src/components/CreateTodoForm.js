@@ -1,41 +1,32 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
-class CreateTodoForm extends Component {
-    state = {
-        todo: '',
+const CreateTodoForm = () => {
+   const [todo, setTodo] = useState("")
 
-    }
-
-
-onInputChange = (event) => {
-    this.setState({
-        todo: event.target.value,
-    })
+const onInputChange = (e) => {
+    setTodo(e.target.value)
 };
 
-onFormSubmit = (event) => {
-    event.preventDefault();
-    this.props.createTodo(this.state.todo);
-    this.setState({
-        todo:"",
-    })
+const onFormSubmit = (e) => {
+    e.preventDefault();
+    this.props.createTodo(todo);
+    setTodo("")
 };
 
-render() {
     return(
         <div>
-            <form onSubmit={this.onFormSubmit} id="taskForm">
+            <form onSubmit={onFormSubmit} id="taskForm">
         <input
-        onChange={this.onInputChange}
+        onChange={onInputChange}
         type="text" id="newItemDescription"
         placeholder="What do you need to do?"
-        value={this.state.todo}
+        value={todo}
         />
         <button type="submit" id="addTask" className="btn">Add Todo</button>
         </form>
         </div>
     );
 };
-};
+
 
 export default CreateTodoForm;
