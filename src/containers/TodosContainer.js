@@ -1,36 +1,25 @@
-import React, {Component} from 'react';
+import CreateTodoForm from '../components/CreateTodoForm'
+import React, { useState, useEffect } from 'react';
 import TodoModel from '../models/Todo';
 import Todos from '../components/Todos';
 
-
-class TodosContainer extends Component {
-    constructor() {
-        super();
-        this.state = {
-            todos: [],
-        };
-        };
-
-        componentDidMount(){
-            this.fetchData();
-        }
-
-    fetchData = () => {
-        TodoModel.all().then((res) => {
-            this.setState ({
-                todos: res.data.todos,
-            })
-        })
-    }
-    render() {
-        return (
+    function TodosContainer () {
+        const [todos, setTodos] = useState([])
+      
+      
+          useEffect(()=>{
+          TodoModel.all().then((res) => {
+          //   console.log(res);
+            setTodos(res)
+          });
+        },[])
+      
+          return (
             <div className="todosComponent">
-                <Todos
-                todos={this.state.todos} />
+              <Todos
+                todos={todos} />
             </div>
-        )
-    }
-};
-       
-
-export default TodosContainer;
+          );
+      };
+    
+      export default TodosContainer;
