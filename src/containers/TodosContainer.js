@@ -27,7 +27,14 @@ import Todos from '../components/Todos';
             });
         };
         
-    
+       const deleteTodo = (todo) => {
+            TodoModel.delete(todo).then((res) => {
+                let todos = todos.filter((todo) => {
+                  return todo._id !== res.data._id;
+                });
+                setTodos(todos);
+            });
+        };
 
 
         
@@ -36,7 +43,8 @@ import Todos from '../components/Todos';
             <CreateTodoForm
               createTodo={ createTodo } />
             <Todos
-              todos={this.props.todos} />
+              todos={this.props.todos} 
+               deleteTodo={deleteTodo}/>
           </div>
           );
       }
