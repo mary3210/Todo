@@ -36,7 +36,7 @@ import Todos from '../components/Todos';
             <CreateTodoForm
               createTodo={ createTodo } />
             <Todos
-              todos={todos} />
+              todos={this.props.todos} />
           </div>
           );
       }

@@ -1,13 +1,24 @@
 import React, { Component} from 'react';
 
-class Todo extends Component {
-    render() {
-        return (
-            <li data-todos-index={this.props.todo._id}>
-                <span className="todo-item">{this.props.todo.body}</span>
-            </li>
-        )
-    }
-}
+const Todo = (props)=>{
+
+    const deleteClickedTodo = () => {
+      props.deleteTodo(props.todo);
+    };
+  
+    
+      return (
+        <li data-todos-index={props.todo._id}>
+          <span className="todo-item">{props.todo.body}</span>
+          <span
+            className='remove'
+            onClick={deleteClickedTodo}>
+            Remove
+          </span>
+        </li>
+      );
+    };
+ 
+  
 
 export default Todo;
