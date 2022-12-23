@@ -14,12 +14,32 @@ import Todos from '../components/Todos';
           });
         },[])
       
+        const createTodo = (todo) => {
+            let newTodo = {
+                body: todo,
+                completed: false,
+            };
+        
+            TodoModel.create(newTodo).then((res) => {
+                let todos = todos.slice();
+                todos.push(res.data);
+                setTodos({ todos: todos });
+            });
+        };
+        
+    
+
+
+        
           return (
-            <div className="todosComponent">
-              <Todos
-                todos={todos} />
-            </div>
+            <div className="todosContainer">
+            <CreateTodoForm
+              createTodo={ createTodo } />
+            <Todos
+              todos={todos} />
+          </div>
           );
-      };
+      }
+    
     
       export default TodosContainer;
